@@ -122,6 +122,10 @@ function control_led(comm_num){
     });
 }
 
+function playtest(){
+    console.log('Tas_play_test!!');
+}
+
 var Serial = null;
 var myPort = null;
 function tas_watchdog() {
@@ -148,6 +152,7 @@ function tas_watchdog() {
     }
     else if(tas_state == 'init_thing') {
         control_led('0');
+        playtest();
         
         tas_state = 'connect';
     }
