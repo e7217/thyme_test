@@ -1,0 +1,11 @@
+version : "3"
+services:
+  thyme:
+    image: e7217/autobuild_thyme
+    container_name: thyme
+    ports:
+      - "7577:7577"
+      - "7578:7578"
+      - "7582:7582"
+      - "8883:8883"
+      - "1888:1883"
