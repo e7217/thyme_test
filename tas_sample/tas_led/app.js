@@ -114,6 +114,23 @@ function on_receive(data) {
     }
 }
 
+function getRandomInt(min, max) { //min ~ max 사이의 임의의 정수 반환
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function randomCount_upload_action() {
+    if (tas_state == 'upload') {
+        var con = {value: 'TAS' + t_count++ + ',' + getRandomInt(1,100)};
+        for (var i = 0; i < upload_arr.length; i++) {
+            if (upload_arr[i].id == 'timer') {
+                var cin = {ctname: upload_arr[i].ctname, con: con};
+                console.log(JSON.stringify(cin) + ' ---->');
+                upload_client.write(JSON.stringify(cin) + '<EOF>');
+                break;
+            }
+        }
+    }
+}
 
 function control_led(comm_num){
     var cmd = 'sudo ./led ' + comm_num;
@@ -174,6 +191,7 @@ function tas_watchdog() {
 }
 
 wdt.set_wdt(require('shortid').generate(), 3, tas_watchdog);
+wdt.set_wdt(require('shortid').generate(), 3, randomCount_upload_action());
 
 var cur_c = '';
 var pre_c = '';
