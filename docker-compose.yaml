@@ -11,4 +11,8 @@ services:
       - "1888:1883"
     restart:
       always
+    stdin_open:
+      true
+    tty:
+      true
 
