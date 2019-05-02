@@ -8,6 +8,10 @@ var net = require('net');
 var util = require('util');
 var fs = require('fs');
 var xml2js = require('xml2js');
+var moment = require('moment');
+require('moment-timezone');
+moment.tz.setDefault("Asia/Seoul");
+
 
 
 var wdt = require('./wdt');
@@ -79,7 +83,8 @@ var t_count = 0;
 
 function timer_upload_action() {
     if (tas_state == 'upload') {
-        var con = {value: 'TAS' + t_count++ + ',' + '55.2'};
+        var date = moment().format('YYYY-MM-DD HH:mm:ss');
+        var con = {value: 'TAS' + t_count++ + ',' + date};
         for (var i = 0; i < upload_arr.length; i++) {
             if (upload_arr[i].id == 'timer') {
                 var cin = {ctname: upload_arr[i].ctname, con: con};
@@ -216,7 +221,7 @@ function tas_watchdog() {
 
 wdt.set_wdt(require('shortid').generate(), 2, timer_upload_action);
 wdt.set_wdt(require('shortid').generate(), 3, tas_watchdog);
-wdt.set_wdt(require('shortid').generate(), 3, serial_upload_action);
+// wdt.set_wdt(require('shortid').generate(), 3, serial_upload_action);
 
 var cur_c = '';
 var pre_c = '';
