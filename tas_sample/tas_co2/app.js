@@ -178,29 +178,28 @@ function tas_watchdog() {
         }
     }
     else if(tas_state == 'init_serial') {
-    	SerialPort = serialport.SerialPort;
-    	
-        serialport.list(function (err, ports) {
-            ports.forEach(function (port) {
-                console.log(port.comName);
-            });
-        });
+    // 	SerialPort = serialport.SerialPort;
+    //
+    //     serialport.list(function (err, ports) {
+    //         ports.forEach(function (port) {
+    //             console.log(port.comName);
+    //         });
+    //     });
+    //
+    //     myPort = new SerialPort(usecomport, {
+    //         baudRate : parseInt(usebaudrate, 10),
+    //         buffersize : 1
+    //         //parser : serialport.parsers.readline("\r\n")
+    //     });
+    //
+    //     myPort.on('open', showPortOpen);
+    //     myPort.on('data', saveLastestData);
+    //     myPort.on('close', showPortClose);
+    //     myPort.on('error', showError);
 
-        myPort = new SerialPort(usecomport, {
-            baudRate : parseInt(usebaudrate, 10),
-            buffersize : 1
-            //parser : serialport.parsers.readline("\r\n")
-        });
+        console.log('tas init serial ok');
+        tas_state = 'connect';
 
-        myPort.on('open', showPortOpen);
-        myPort.on('data', saveLastestData);
-        myPort.on('close', showPortClose);
-        myPort.on('error', showError);
-
-        if(myPort) {
-            console.log('tas init serial ok');
-            tas_state = 'connect';
-        }
     }
     else if(tas_state == 'connect' || tas_state == 'reconnect') {
         upload_client.connect(useparentport, useparenthostname, function() {
