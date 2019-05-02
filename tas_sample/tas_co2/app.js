@@ -17,7 +17,7 @@ moment.tz.setDefault("Asia/Seoul");
 var wdt = require('./wdt');
 //var sh_serial = require('./serial');
 
-var serialport = require('serialport');
+// var serialport = require('serialport');
 
 var usecomport = '';
 var usebaudrate = '';
