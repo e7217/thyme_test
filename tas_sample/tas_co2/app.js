@@ -96,16 +96,16 @@ function timer_upload_action() {
     }
 }
 
-function serial_upload_action() {
-    if (tas_state == 'upload') {
-        var buf = new Buffer(4);
-        buf[0] = 0x11;
-        buf[1] = 0x01;
-        buf[2] = 0x01;
-        buf[3] = 0xED;
-        myPort.write(buf);
-    }
-}
+// function serial_upload_action() {
+//     if (tas_state == 'upload') {
+//         var buf = new Buffer(4);
+//         buf[0] = 0x11;
+//         buf[1] = 0x01;
+//         buf[2] = 0x01;
+//         buf[3] = 0xED;
+//         myPort.write(buf);
+//     }
+// }
 
 var tas_download_count = 0;
 

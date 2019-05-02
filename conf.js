@@ -56,9 +56,9 @@ cnt_arr[count++].name = 'temp';
 cnt_arr[count] = {};
 cnt_arr[count].parent = '/' + cse.name + '/' + ae.name;
 cnt_arr[count++].name = 'tvoc';
-// cnt_arr[count] = {};
-// cnt_arr[count].parent = '/' + cse.name + '/' + ae.name;
-// cnt_arr[count++].name = 'timer';
+cnt_arr[count] = {};
+cnt_arr[count].parent = '/' + cse.name + '/' + ae.name;
+cnt_arr[count++].name = 'timer';
 
 // build sub
 count = 0;

@@ -6,7 +6,9 @@
     "js2xmlparser": "^1.0.0",
     "net": "^1.0.2",
     "shortid": "^2.2.8",
-    "xml2js": "^0.4.12"
+    "xml2js": "^0.4.12",
+    "moment": "^2.24.0",
+    "moment-timezone": "^0.5.25"
   },
   "description": "tas of &Cube",
   "main": "app.js",
@@ -14,6 +16,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Il Yeup Ahn, KETI",
+  "author": "Il Yeup Ahn, KETI, (modified by. Chang Yong Um, CTF)",
   "license": "ISC"
 }
