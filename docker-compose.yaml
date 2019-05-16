@@ -16,3 +16,39 @@ services:
     tty:
       true
 
+  mobius:
+    image: e7217/mobius_autobuild
+    container_name: mobius
+    ports:
+      - "7577:7577"
+      - "7578:7578"
+      - "7582:7582"
+      - "8883:8883"
+      - "1883:1883"
+    restart:
+      always
+    stdin_open:
+      true
+    tty:
+      true
+
+  mobiusdb:
+    image: mysql:5.7
+    container_name: mobiusdb
+    command:
+#      --default-authentication-plugin=mysql_native_password
+      --innodb-use-native-aio=0
+#      --disable-partition-engine-check
+    environment:
+      MYSQL_ROOT_PASSWORD:"root"
+    restart:
+      always
+
+  adminer:
+    image:
+      adminer
+    restart:
+      always
+    ports:
+      - "8080:8080"
+
