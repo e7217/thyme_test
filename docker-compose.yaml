@@ -41,6 +41,8 @@ services:
 #      --disable-partition-engine-check
     environment:
       MYSQL_ROOT_PASSWORD:"root"
+    volumes:
+      - ./data/:/var/lib/mysql
     restart:
       always
 
@@ -52,3 +54,15 @@ services:
     ports:
       - "8080:8080"
 
+  mqtt-broker:
+    image:
+      eclipse-mosquitto
+    container_name:
+      mqtt-broker
+    restart:
+      always
+    volumes:
+      - ./mqtt/:/mosquitto/
+    ports:
+      - "1883:1883"
+      - "9001:9001"
