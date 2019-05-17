@@ -43,6 +43,8 @@ services:
       MYSQL_ROOT_PASSWORD:"root"
     volumes:
       - ./data/:/var/lib/mysql
+    ports:
+      - "3306:3306"
     restart:
       always
 
