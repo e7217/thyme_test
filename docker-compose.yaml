@@ -40,7 +40,7 @@ services:
       --innodb-use-native-aio=0
 #      --disable-partition-engine-check
     environment:
-      MYSQL_ROOT_PASSWORD:"root"
+      MYSQL_ROOT_PASSWORD: "root"
     volumes:
       - ./data/:/var/lib/mysql
     ports:
