@@ -70,3 +70,13 @@ services:
     ports:
       - "1883:1883"
       - "9001:9001"
+
+  grafana:
+    image:
+      grafana/grafana
+    container_name:
+      grafana
+    restart:
+      always
+    ports:
+      - "3000:3000"
